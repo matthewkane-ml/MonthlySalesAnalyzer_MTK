@@ -8,7 +8,7 @@ En este proyecto, te pondrás en el papel de un analista de datos encargado de e
 
 Sigue las siguientes instrucciones:
 
-1. Crear un nuevo repositorio haciendo fork en el [proyecto de Git](https://github.com/4GeeksAcademy/monthly-sales-analyzer-project) o [haciendo clic aquí](https://github.com/4GeeksAcademy/monthly-sales-analyzer-project/fork).
+1. Clona o haz fork de este repositorio: [matthewkane-ml/MonthlySalesAnalyzer_MTK](https://github.com/matthewkane-ml/MonthlySalesAnalyzer_MTK).
 2. Abre el repositorio creado recientemente en Codespace usando la [extensión del botón de Codespace](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 3. Una vez que el VSCode del Codespace haya terminado de abrirse, comienza tu proyecto siguiendo las instrucciones a continuación.
 
@@ -81,4 +81,4 @@ Una vez que completes los ejercicios, sigue estos pasos para enviarlos correctam
     ```sh
     git push origin main
     ```
-3. Dirígete a [4Geeks.com](https://4geeks.com) para enviar el enlace de tu repositorio.
+3. Asegúrate de que tu repositorio esté actualizado en GitHub.

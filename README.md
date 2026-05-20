@@ -8,7 +8,7 @@ In this project, you will take on the role of a data analyst responsible for eva
 
 Follow these instructions:
 
-1. Create a new repository by forking the [Git project](https://github.com/4GeeksAcademy/monthly-sales-analyzer-project) or [clicking here](https://github.com/4GeeksAcademy/monthly-sales-analyzer-project/fork).
+1. Clone or fork this repository: [matthewkane-ml/MonthlySalesAnalyzer_MTK](https://github.com/matthewkane-ml/MonthlySalesAnalyzer_MTK).
 2. Open the newly created repository in Codespace using the [Codespace button extension](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 3. Once the VSCode in Codespace has finished opening, start your project by following the instructions below.
 
@@ -81,4 +81,4 @@ Once you complete the exercises, follow these steps to submit them correctly:
    ```sh
    git push origin main
    ```
-3. Go to [4Geeks.com](https://4geeks.com) to submit the link to your repository.
+3. Ensure your repository is up to date on GitHub.
