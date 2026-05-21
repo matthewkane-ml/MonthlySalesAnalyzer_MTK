@@ -1,84 +1,67 @@
 # Monthly Sales Analyzer
 
-In this project, you will take on the role of a data analyst responsible for evaluating the sales performance of three products over a month. To do this, you will work with a dataset structured as a list of dictionaries, where each entry represents the daily sales of each product. Your task is to complete several Python functions that will allow you to calculate totals, averages, identify the most and least successful days, and analyze sales trends. As you complete each function, you will strengthen your data manipulation and programming logic skills, preparing yourself for future data science projects.
+> A pure-Python sales analysis tool built on a 20-day, 3-product dataset — implementing eight analytical functions from scratch using only loops, conditionals, and data structures.
 
-<how-to-start>
-   
-### 🌱 How to start this project
+---
 
-Follow these instructions:
+## Problem
 
-1. Clone or fork this repository: [matthewkane-ml/MonthlySalesAnalyzer_MTK](https://github.com/matthewkane-ml/MonthlySalesAnalyzer_MTK).
-2. Open the newly created repository in Codespace using the [Codespace button extension](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
-3. Once the VSCode in Codespace has finished opening, start your project by following the instructions below.
+Before reaching for pandas or NumPy, a data analyst needs to understand how to extract insights directly from raw Python structures. This project builds a full sales analysis pipeline using only native Python — no external libraries — to answer the kinds of questions any business stakeholder would ask: which product leads, which day peaked, how many days crossed a target threshold.
 
-</how-to-start>
+## Dataset
 
-
-## 📝 Instructions
-
-You have been provided with a Python file (`monthly_sales_analyzer.py`) that contains sales data for a month for three products over 20 days. Your task is to complete the empty functions to analyze this data using basic Python skills: loops, conditionals, and data structures. This project will assess your ability to process and extract information from a dataset, preparing you for data science concepts.
-
-
-- The data is stored in a variable called `sales_data`, a list of 20 dictionaries. Each dictionary represents a day and has:
-   - `"day"`: Day number (1 to 20).
-   - `"product_a"`: Sales of Product A.
-   - `"product_b"`: Sales of Product B.
-   - `"product_c"`: Sales of Product C.
-
-Example: 
+A list of 20 dictionaries, each representing one day of sales for three products:
 
 ```python
-{"day": 1, "product_a": 150, "product_b": 80, "product_c": 200}
+{"day": 1, "product_a": 202, "product_b": 142, "product_c": 164}
 ```
 
-- Complete the five placeholder functions in the file. 
+- 20 days × 3 products (A, B, C)
+- No external file — data is defined directly in `monthly_sales_analyzer.py`
 
-- Each function analyzes the `sales_data` in a specific way. Use only basic Python, no external libraries. The file includes `print` statements to test your work.
+## Functions Implemented
 
-#### Functions to Complete:  
-- **`total_sales_by_product(data, product_key)`:** Calculate the total sales of a given product (e.g., `"product_a"`) over 20 days.
+| Function | Description |
+|---|---|
+| `total_sales_by_product(data, key)` | Sum all daily sales for a given product |
+| `average_daily_sales(data, key)` | Mean daily sales for a given product |
+| `best_selling_day(data)` | Day number with highest combined sales across all products |
+| `days_above_threshold(data, key, threshold)` | Count days where a product's sales exceeded a threshold |
+| `top_product(data)` | Which of A/B/C had the highest total sales over the period |
+| `worst_selling_day(data)` *(bonus)* | Day with the lowest combined sales |
+| `show_top_three(data)` *(bonus)* | Top 3 days ranked by total sales |
+| `get_range(data, key)` *(bonus)* | Max − min spread for a given product |
 
+## Results
 
-- **`average_daily_sales(data, product_key)`:** Calculate the average daily sales of a given product.
+Across the 20-day period:
 
+- **Top product:** Product C — consistently the highest daily volume, totaling ~5,300 units vs ~3,750 for A and ~2,435 for B
+- **Best selling day:** Day 12 (combined total ~690 units: 287 + 64 + 339)
+- **Product C days above 300:** 8 out of 20 days
 
-- **`best_selling_day(data)`:** Find the day with the highest total sales (sum of the three products).
+The three bonus functions were also implemented. `show_top_three` works by calling `best_selling_day` iteratively and popping the found day from a copy of the list — a clean reuse of existing logic without duplicating code.
 
-- **`days_above_threshold(data, product_key, threshold)`:** Count how many days the sales of a product exceeded a given threshold (e.g., 18).
+## Tech Stack
 
-- **`top_product(data)`:** Identify which product (A, B, or C) had the highest total sales.
+`Python` · native data structures only (lists, dicts, loops, conditionals)
 
-- To test your code, run the following command in the command line:
+## Run It Locally
 
-   ```bash
-   python3 monthly_sales_analyzer.py
-   ```
+```bash
+git clone https://github.com/matthewkane-ml/MonthlySalesAnalyzer_MTK.git
+cd MonthlySalesAnalyzer_MTK
+python monthly_sales_analyzer.py
+```
 
-## Feeling confident? 😎:  
-- Add a function to find the day with the worst sales.
-- Sort the days by total sales and show the top 3.
-- Calculate the range (maximum - minimum) of the sales of a product.
+No dependencies to install — pure Python.
 
-  
-In the end, you will have practiced handling a realistic dataset with basic Python, developing skills for your next data science course. 
+## What I'd Do Next
 
-Have fun analyzing!🚀
+- Refactor the loops to use Python built-ins (`sum()`, `max()`, `min()`, list comprehensions) now that the manual logic is understood — the natural next step after this exercise
+- Load the data from a CSV file so the analyzer works on real month-end sales exports
+- Add a visualization layer with Matplotlib to plot daily totals and product trends over time
 
+---
 
-## 🚛 How to deliver this project
-
-Once you complete the exercises, follow these steps to submit them correctly:  
-
-1. **Save and commit the changes** in your local repository:  
-
-   ```sh
-   git add .
-   git commit -m "Completed exercises"
-   ```
-2. Push the changes to GitHub with:
-
-   ```sh
-   git push origin main
-   ```
-3. Ensure your repository is up to date on GitHub.
+**Author:** Matthew Kane — [LinkedIn](https://www.linkedin.com/in/thomas-k-392094410/) · [GitHub portfolio](https://github.com/matthewkane-ml)

@@ -1,84 +1,67 @@
 # Analizador de Ventas Mensuales
 
-En este proyecto, te pondrás en el papel de un analista de datos encargado de evaluar el rendimiento de ventas de tres productos durante un mes. Para ello, trabajarás con un conjunto de datos estructurado en una lista de diccionarios, donde cada entrada representa las ventas diarias de cada producto. Tu tarea será completar varias funciones en Python que te permitirán calcular totales, promedios, encontrar los días más y menos exitosos, y analizar tendencias de ventas. A medida que completes cada función, estarás fortaleciendo tus habilidades en manipulación de datos y lógica de programación, preparándote para futuros proyectos en ciencia de datos.
+> Una herramienta de análisis de ventas en Python puro construida sobre un dataset de 20 días y 3 productos — implementando ocho funciones analíticas desde cero usando únicamente bucles, condicionales y estructuras de datos.
 
-<onlyfor saas="false" withBanner="false">
-  
-### 🌱 Cómo iniciar este proyecto
+---
 
-Sigue las siguientes instrucciones:
+## Problema
 
-1. Clona o haz fork de este repositorio: [matthewkane-ml/MonthlySalesAnalyzer_MTK](https://github.com/matthewkane-ml/MonthlySalesAnalyzer_MTK).
-2. Abre el repositorio creado recientemente en Codespace usando la [extensión del botón de Codespace](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
-3. Una vez que el VSCode del Codespace haya terminado de abrirse, comienza tu proyecto siguiendo las instrucciones a continuación.
+Antes de recurrir a pandas o NumPy, un analista de datos necesita saber cómo extraer información directamente de estructuras nativas de Python. Este proyecto construye un pipeline completo de análisis de ventas usando solo Python puro — sin librerías externas — para responder las preguntas que cualquier stakeholder de negocio haría: qué producto lidera, qué día fue el pico, cuántos días superaron un umbral objetivo.
 
-</onlyfor>
+## Dataset
 
-
-## 📝 Instrucciones
-
-Se te ha proporcionado un archivo Python (`monthly_sales_analyzer.py`) que contiene datos de ventas de un mes para tres productos a lo largo de 20 días. Tu tarea es completar las funciones vacías para analizar estos datos utilizando habilidades básicas de Python: bucles, condicionales y estructuras de datos. Este proyecto evaluará tu capacidad para procesar y extraer información de un conjunto de datos, preparándote para conceptos de ciencia de datos.
-
-
-- Los datos se almacenan en una variable llamada `sales_data`, una lista de 20 diccionarios. Cada diccionario representa un día y tiene:
-    - `"day"`: Número del día (1 a 20).
-    - `"product_a"`: Ventas del Producto A.
-    - `"product_b"`: Ventas del Producto B.
-    - `"product_c"`: Ventas del Producto C.
-
-Ejemplo: 
+Una lista de 20 diccionarios, cada uno representando un día de ventas de tres productos:
 
 ```python
-{"day": 1, "product_a": 150, "product_b": 80, "product_c": 200}
+{"day": 1, "product_a": 202, "product_b": 142, "product_c": 164}
 ```
 
-- Completa las cinco funciones de marcador de posición en el archivo. 
+- 20 días × 3 productos (A, B, C)
+- Sin archivo externo — los datos están definidos directamente en `monthly_sales_analyzer.py`
 
-- Cada función analiza los `sales_data` de una manera específica. Usa solo Python básico, sin bibliotecas externas. El archivo incluye declaraciones `print` para probar tu trabajo.
+## Funciones Implementadas
 
-#### Funciones a Completar:  
-- **`total_sales_by_product(data, product_key)`:** Calcula las ventas totales de un producto dado (por ejemplo, `"product_a"`) a lo largo de 20 días.
+| Función | Descripción |
+|---|---|
+| `total_sales_by_product(data, key)` | Suma todas las ventas diarias de un producto dado |
+| `average_daily_sales(data, key)` | Media de ventas diarias de un producto dado |
+| `best_selling_day(data)` | Día con las ventas combinadas más altas en todos los productos |
+| `days_above_threshold(data, key, threshold)` | Cuenta los días en que las ventas de un producto superaron un umbral |
+| `top_product(data)` | Cuál de A/B/C tuvo las ventas totales más altas en el período |
+| `worst_selling_day(data)` *(bonus)* | Día con las ventas combinadas más bajas |
+| `show_top_three(data)` *(bonus)* | Los 3 mejores días clasificados por ventas totales |
+| `get_range(data, key)` *(bonus)* | Diferencia máximo − mínimo para un producto dado |
 
+## Resultados
 
-- **`average_daily_sales(data, product_key)`:** Calcula el promedio de ventas diarias de un producto dado.
+A lo largo del período de 20 días:
 
+- **Producto líder:** Producto C — consistentemente el mayor volumen diario, con un total de ~5.300 unidades frente a ~3.750 de A y ~2.435 de B
+- **Mejor día de ventas:** Día 12 (total combinado ~690 unidades: 287 + 64 + 339)
+- **Días de Producto C por encima de 300:** 8 de 20 días
 
-- **`best_selling_day(data)`:** Encuentra el día con las ventas totales más altas (suma de los tres productos).
+Las tres funciones bonus también fueron implementadas. `show_top_three` funciona llamando a `best_selling_day` de forma iterativa y eliminando el día encontrado de una copia de la lista — reutilizando la lógica existente de forma limpia sin duplicar código.
 
-- **`days_above_threshold(data, product_key, threshold)`:** Cuenta cuántos días las ventas de un producto superaron un umbral dado. (por ejemplo, 18).
+## Stack Tecnológico
 
-- **`top_product(data)`:** Identifica qué producto (A, B o C) tuvo las ventas totales más altas.
+`Python` · solo estructuras de datos nativas (listas, diccionarios, bucles, condicionales)
 
-- Para probar tu código escribe el siguiente comando en la linea de comando:
+## Ejecutar Localmente
 
-    ```bash
-    python3 monthly_sales_analyzer.py
-    ```
+```bash
+git clone https://github.com/matthewkane-ml/MonthlySalesAnalyzer_MTK.git
+cd MonthlySalesAnalyzer_MTK
+python monthly_sales_analyzer.py
+```
 
-## ¿Te sientes confiado? 😎:  
-- Agrega una función para encontrar el día con las peores ventas.
-- Ordena los días por ventas totales y muestra los 3 mejores.
-- Calcula el rango (máximo - mínimo) de las ventas de un producto.
+Sin dependencias — Python puro.
 
-  
-Al final, habrás practicado el manejo de un conjunto de datos realista con Python básico, desarrollando habilidades para tu próximo curso de ciencia de datos. 
+## Próximos Pasos
 
-¡Diviértete analizando!🚀
+- Refactorizar los bucles para usar funciones integradas de Python (`sum()`, `max()`, `min()`, comprensiones de listas) ahora que la lógica manual ya se entiende — el siguiente paso natural después de este ejercicio
+- Cargar los datos desde un archivo CSV para que el analizador funcione con exportaciones reales de ventas de fin de mes
+- Añadir una capa de visualización con Matplotlib para graficar los totales diarios y las tendencias por producto a lo largo del tiempo
 
+---
 
-## 🚛 Cómo entregar este proyecto
-
-Una vez que completes los ejercicios, sigue estos pasos para enviarlos correctamente:  
-
-1. **Guarda y confirma los cambios** en tu repositorio local:  
-
-   ```sh
-   git add .
-   git commit -m "Completed exercises"
-   ```
-2. Sube los cambios a GitHub con:
-
-    ```sh
-    git push origin main
-    ```
-3. Asegúrate de que tu repositorio esté actualizado en GitHub.
+**Autor:** Matthew Kane — [LinkedIn](https://www.linkedin.com/in/thomas-k-392094410/) · [Portafolio GitHub](https://github.com/matthewkane-ml)
